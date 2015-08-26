@@ -5,7 +5,7 @@
   "main": "elemental.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/elementalui/elemental.git"
+    "url": "git@github.com:elementalui/elemental-dist.git"
   },
   "keywords": [
     "react",
