@@ -1454,11 +1454,15 @@ module.exports = _react2['default'].createClass({
 			{ className: componentClass },
 			componentLabel,
 			_react2['default'].createElement(
-				'select',
-				_extends({ className: 'FormInput FormSelect', id: forAndID, onChange: this.handleChange, onBlur: this.handleBlur }, props),
-				options
+				'div',
+				{ className: 'u-pos-relative' },
+				_react2['default'].createElement(
+					'select',
+					_extends({ className: 'FormInput FormSelect', id: forAndID, onChange: this.handleChange, onBlur: this.handleBlur }, props),
+					options
+				),
+				this.renderIcon(_icons2['default'].selectArrows)
 			),
-			this.renderIcon(_icons2['default'].selectArrows),
 			validationMessage
 		);
 	}
@@ -1606,7 +1610,13 @@ module.exports = _react2['default'].createClass({
 		backdropClosesModal: _react2['default'].PropTypes.bool,
 		className: _react2['default'].PropTypes.string,
 		isOpen: _react2['default'].PropTypes.bool,
-		onCancel: _react2['default'].PropTypes.func
+		onCancel: _react2['default'].PropTypes.func,
+		width: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.oneOf(['small', 'medium', 'large']), _react2['default'].PropTypes.number])
+	},
+	getDefaultProps: function getDefaultProps() {
+		return {
+			width: 'medium'
+		};
 	},
 	componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
 		if (nextProps.isOpen) {
@@ -1629,9 +1639,11 @@ module.exports = _react2['default'].createClass({
 	renderDialog: function renderDialog() {
 		if (!this.props.isOpen) return;
 
+		var dialogClassname = (0, _classnames2['default'])('Modal-dialog', this.props.width && isNaN(this.props.width) ? 'Modal-dialog--' + this.props.width : null);
+
 		return _react2['default'].createElement(
 			'div',
-			{ className: 'Modal-dialog' },
+			{ className: dialogClassname, style: this.props.width && !isNaN(this.props.width) ? { width: this.props.width + 20 } : null },
 			_react2['default'].createElement(
 				'div',
 				{ className: 'Modal-content' },
