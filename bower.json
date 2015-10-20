@@ -1,11 +1,15 @@
 {
   "name": "elemental",
-  "version": "0.0.2",
+  "version": "0.0.0",
   "description": "React UI Framework",
   "main": "elemental.js",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:elementalui/elemental-dist.git"
+    "url": "https://github.com/elementalui/elemental-dist.git"
+  },
+  "dependencies": {
+    "react": "^0.14"
   },
   "keywords": [
     "react",
@@ -20,11 +24,7 @@
   "authors": [
     "Jed Watson"
   ],
-  "license": "MIT",
   "homepage": "http://elemental-ui.com",
-  "dependencies": {
-    "react": "^0.13.0 || 0.14.0-beta1"
-  },
   "ignore": [
     "**/.*",
     "node_modules",
